@@ -1,5 +1,5 @@
-import markerIcon from '../node_modules/leaflet/dist/images/marker-icon.png'
-import markerShadow from '../node_modules/leaflet/dist/images/marker-shadow.png'
+import markerIcon from '../images/marker-icon.png'
+import markerShadow from '../images/marker-shadow.png'
 import L from 'leaflet'
 
 export default class {
