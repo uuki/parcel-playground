@@ -103,7 +103,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({10:[function(require,module,exports) {
+})({19:[function(require,module,exports) {
+module.exports="/marker-icon.ab4118ea.png";
+},{}],20:[function(require,module,exports) {
+module.exports="/marker-shadow.006c0957.png";
+},{}],10:[function(require,module,exports) {
 var define;
 var global = arguments[3];
 /* @preserve
@@ -13918,6 +13922,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _markerIcon = require('../node_modules/leaflet/dist/images/marker-icon.png');
+
+var _markerIcon2 = _interopRequireDefault(_markerIcon);
+
+var _markerShadow = require('../node_modules/leaflet/dist/images/marker-shadow.png');
+
+var _markerShadow2 = _interopRequireDefault(_markerShadow);
+
 var _leaflet = require('leaflet');
 
 var _leaflet2 = _interopRequireDefault(_leaflet);
@@ -13935,11 +13947,13 @@ var _class = function () {
       map: '',
       defaultOptions: {
         tile: 'osm', // or gsi
-        latlng: [35.6580382, 139.6994418],
+        lat: 35.6580382,
+        lng: 139.6994418,
         zoom: 14,
         layer: {
           maxZoom: 18
-        }
+        },
+        markers: []
       },
       options: {}
     };
@@ -13952,10 +13966,12 @@ var _class = function () {
   _createClass(_class, [{
     key: 'initialize',
     value: function initialize() {
+      var _this = this;
+
       var tiles = {};
       var choose = void 0;
 
-      this.data.map = _leaflet2.default.map(this.$el.id).setView([this.data.options.latlng[0], this.data.options.latlng[1]], this.data.options.zoom);
+      this.data.map = _leaflet2.default.map(this.$el.id).setView([this.data.options.lat, this.data.options.lng], this.data.options.zoom);
 
       tiles.osm = {
         api: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -13974,6 +13990,22 @@ var _class = function () {
       Object.assign(choose.option, this.data.options.layer);
 
       _leaflet2.default.tileLayer(choose.api, choose.option).addTo(this.data.map);
+
+      if (this.data.options.markers.length) {
+        var defaultIcon = _leaflet2.default.icon({
+          iconUrl: _markerIcon2.default,
+          shadowUrl: _markerShadow2.default,
+          iconSize: [25, 41], // size of the icon
+          shadowSize: [41, 41], // size of the shadow
+          iconAnchor: [0, 40], // point of the icon which will correspond to marker's location
+          shadowAnchor: [1, 39], // the same for the shadow
+          popupAnchor: [13, -46] // point from which the popup should open relative to the iconAnchor
+        });
+
+        this.data.options.markers.forEach(function (marker) {
+          _leaflet2.default.marker([marker.lat, marker.lng], { icon: defaultIcon }).bindPopup('<h1>Hey!</h1><a href="https://leafletjs.com/"" target="_blank">leafletjs.com</a>').addTo(_this.data.map);
+        });
+      }
     }
   }, {
     key: 'bind',
@@ -13990,7 +14022,7 @@ var _class = function () {
 }();
 
 exports.default = _class;
-},{"leaflet":10}],4:[function(require,module,exports) {
+},{"../node_modules/leaflet/dist/images/marker-icon.png":19,"../node_modules/leaflet/dist/images/marker-shadow.png":20,"leaflet":10}],4:[function(require,module,exports) {
 'use strict';
 
 var _map = require('./modules/map');
@@ -14004,6 +14036,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   'use strict';
 
   function setupLeaflet() {
+    var instance = void 0;
     var targets = document.querySelectorAll('.map');
 
     targets.forEach(function (mapEl) {
@@ -14015,7 +14048,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         option = {};
       }
 
-      new _map2.default(mapEl, option);
+      instance = new _map2.default(mapEl, option);
     });
   }
 
@@ -14025,7 +14058,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   document.addEventListener('DOMContentLoaded', onLoadContent);
 })();
-},{"./modules/map":8}],27:[function(require,module,exports) {
+},{"./modules/map":8}],17:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -14054,7 +14087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56478' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64941' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -14195,5 +14228,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[27,4], null)
+},{}]},{},[17,4], null)
 //# sourceMappingURL=/main.d5761657.map

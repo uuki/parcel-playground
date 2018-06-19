@@ -1,3 +1,5 @@
+import markerIcon from '../node_modules/leaflet/dist/images/marker-icon.png'
+import markerShadow from '../node_modules/leaflet/dist/images/marker-shadow.png'
 import L from 'leaflet'
 
 export default class {
@@ -8,11 +10,13 @@ export default class {
       map: '',
       defaultOptions: {
         tile: 'osm', // or gsi
-        latlng: [35.6580382, 139.6994418],
+        lat: 35.6580382,
+        lng: 139.6994418,
         zoom: 14,
         layer: {
           maxZoom: 18
-        }
+        },
+        markers: []
       },
       options: {
       }
@@ -27,7 +31,7 @@ export default class {
     const tiles = {};
     let choose;
 
-    this.data.map = L.map(this.$el.id).setView([this.data.options.latlng[0], this.data.options.latlng[1]], this.data.options.zoom)
+    this.data.map = L.map(this.$el.id).setView([this.data.options.lat, this.data.options.lng], this.data.options.zoom)
 
     tiles.osm = {
       api: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -49,6 +53,24 @@ export default class {
       choose.api,
       choose.option
     ).addTo(this.data.map)
+
+    if(this.data.options.markers.length) {
+      const defaultIcon = L.icon({
+        iconUrl: markerIcon,
+        shadowUrl: markerShadow,
+        iconSize:     [25, 41], // size of the icon
+        shadowSize:   [41, 41], // size of the shadow
+        iconAnchor:   [0, 40], // point of the icon which will correspond to marker's location
+        shadowAnchor: [1, 39],  // the same for the shadow
+        popupAnchor:  [13, -46] // point from which the popup should open relative to the iconAnchor
+      })
+
+      this.data.options.markers.forEach(marker => {
+        L.marker([marker.lat, marker.lng], { icon: defaultIcon })
+          .bindPopup('<h1>Hey!</h1><a href="https://leafletjs.com/"" target="_blank">leafletjs.com</a>')
+          .addTo(this.data.map)
+      })
+    }
   }
 
   bind() {
