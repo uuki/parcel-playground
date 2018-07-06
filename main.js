@@ -4,6 +4,9 @@ import LeafMap from './modules/map';
 
   'use strict';
 
+  /**
+   * Leaflet
+   */
   function setupLeaflet() {
     let instance;
     const targets = document.querySelectorAll('.map');
@@ -21,9 +24,17 @@ import LeafMap from './modules/map';
     })
   }
 
+  /**
+   * WebRTC
+   */
 
+
+  /**
+   * onload
+   */
   function onLoadContent() {
-    setupLeaflet();
+    // setupLeaflet();
+
   }
 
   document.addEventListener('DOMContentLoaded', onLoadContent);

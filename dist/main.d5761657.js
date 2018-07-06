@@ -14035,6 +14035,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   'use strict';
 
+  /**
+   * Leaflet
+   */
+
   function setupLeaflet() {
     var instance = void 0;
     var targets = document.querySelectorAll('.map');
@@ -14052,13 +14056,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     });
   }
 
+  /**
+   * WebRTC
+   */
+
+  /**
+   * onload
+   */
   function onLoadContent() {
-    setupLeaflet();
+    // setupLeaflet();
+
   }
 
   document.addEventListener('DOMContentLoaded', onLoadContent);
 })();
-},{"./modules/map":8}],14:[function(require,module,exports) {
+},{"./modules/map":8}],15:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -14087,7 +14099,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49631' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64770' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -14228,5 +14240,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[14,4], null)
+},{}]},{},[15,4], null)
 //# sourceMappingURL=/main.d5761657.map

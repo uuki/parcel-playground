@@ -170,7 +170,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./images/layers.png":22,"./images/layers-2x.png":23,"./images/marker-icon.png":19,"_css_loader":25}],14:[function(require,module,exports) {
+},{"./images/layers.png":22,"./images/layers-2x.png":23,"./images/marker-icon.png":19,"_css_loader":25}],15:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -199,7 +199,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49631' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64770' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -419,4 +419,4 @@ LazyPromise.prototype.catch = function (onError) {
 };
 },{"./bundle-url":26}],0:[function(require,module,exports) {
 var b=require(24);b.load([["layers.2009c722.png",22],["layers-2x.3876cb1c.png",23],["marker-icon.ab4118ea.png",19]]);
-},{}]},{},[14,0], null)
+},{}]},{},[15,0], null)

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  easyrtc:
+    build: ./
+    container_name: easyrtc
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+    environment:
+      NGINX_HOST: webrtc.local
+      NGINX_DOCROOT: /var/www/html

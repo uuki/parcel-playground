@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>Playground</title>
-  <link rel="stylesheet" href="/leaflet.73d74a61.css">
-  <link rel="stylesheet" href="/style.30248b79.css">
-<script src="/leaflet.73d74a61.js"></script><script src="/style.30248b79.js"></script></head>
-<body>
-  <h1 class="head">Leaflet TEST</h1>
+<html>
+  <head>
+    <title>EasyRTC Demo: Instant Messaging</title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/easyrtc/easyrtc.css">
 
-  <main class="l-main">
-    <a href="https://github.com/uuki/parcel-playground" target="_blank">Github</a>
+    <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/easyrtc/easyrtc.js"></script>
+    <script type="text/javascript" src="/demo_instant_messaging.fa71fb9b.js"></script>
+  </head>
+  <body onload="connect()">
+        <div id="sendMessageArea">
+          <div id="iam">Obtaining ID...</div>
+          <textarea id="sendMessageText"></textarea>
+          <div id="otherClients"></div>
+        </div>
+        <div id="receiveMessageArea">
+          Received Messages:
+          <div id="conversation"></div>
+        </div>
 
-    <section>
-      <h2>Basic</h2>
-      <div id="map-basic" class="map" data-map-option="{ &quot;zoom&quot;: 16, &quot;markers&quot;: [{ &quot;lat&quot;: 35.6580382, &quot;lng&quot;: 139.6994418 }] }"></div>
-    </section>
-
-    <section>
-      <h2>国土地理院</h2>
-      <div id="map-kokudotiriin" class="map" data-map-option="{ &quot;tile&quot;: &quot;gsi&quot;, &quot;lat&quot;: 35.6895967, &quot;lng&quot;: 139.6982191, &quot;zoom&quot;: 15 }"></div>
-    </section>
-  </main>
-
-  <script src="/main.d5761657.js"></script>
-</body>
+  </body>
 </html>
